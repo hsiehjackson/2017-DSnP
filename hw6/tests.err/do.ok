@@ -1,0 +1,37 @@
+cirr tests.err/ok01.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok01.write
+cirr tests.err/ok02.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok02.write
+cirr tests.err/ok03.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok03.write
+cirr tests.err/ok04.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok04.write
+cirr tests.err/ok05.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok05.write
+cirr tests.err/ok06.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok06.write
+cirr tests.err/ok07.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok07.write
+cirr tests.err/ok08.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok08.write
+cirr tests.err/ok09.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok09.write
+cirr tests.err/ok10.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok10.write
+cirr tests.err/ok11.aag -replace
+do tests.err/do.cmd
+cirw -o write/ok11.write
+cirr tests.err/good.aag -replace
+do tests.err/do.cmd
+cirw -o write/good.write
+q -f

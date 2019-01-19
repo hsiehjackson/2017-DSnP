@@ -1,0 +1,22 @@
+cirr tests.err/flt01.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt01.write
+cirr tests.err/flt02.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt02.write
+cirr tests.err/flt03.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt03.write
+cirr tests.err/flt04.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt04.write
+cirr tests.err/flt05.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt05.write
+cirr tests.err/flt06.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt06.write
+cirr tests.err/flt07.aag -replace
+do tests.err/do.cmd
+cirw -o write/flt07.write
+q -f

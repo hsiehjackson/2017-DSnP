@@ -1,0 +1,12 @@
+cirr test.aag
+cirsweep
+cirstrash
+ciroptimize
+cirstrash
+ciroptimize
+cirsweep
+cirsim -r
+cirfraig
+cirsweep
+usage
+q -f

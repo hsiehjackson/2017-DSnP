@@ -1,0 +1,37 @@
+cirr tests.fraig/ISCAS85/C17.aag -r
+do tests.err/do.cmd
+cirw -o write/C17ref.write
+cirr tests.fraig/ISCAS85/C432.aag -r
+do tests.err/do.cmd
+cirw -o write/C432ref.write
+cirr tests.fraig/ISCAS85/C432_r.aag -r
+do tests.err/do.cmd
+cirw -o write/C432_rref.write
+cirr tests.fraig/ISCAS85/C499.aag -r
+do tests.err/do.cmd
+cirw -o write/C499ref.write
+cirr tests.fraig/ISCAS85/C499_r.aag -r
+do tests.err/do.cmd
+cirw -o write/C499_rref.write
+cirr tests.fraig/ISCAS85/C880.aag -r
+do tests.err/do.cmd
+cirw -o write/C880ref.write
+cirr tests.fraig/ISCAS85/C1355.aag -r
+do tests.err/do.cmd
+cirw -o write/C1355ref.write
+cirr tests.fraig/ISCAS85/C1908.aag -r
+do tests.err/do.cmd
+cirw -o write/C1908ref.write
+cirr tests.fraig/ISCAS85/C3540.aag -r
+do tests.err/do.cmd
+cirw -o write/C3540ref.write
+cirr tests.fraig/ISCAS85/C5315.aag -r
+do tests.err/do.cmd
+cirw -o write/C5315ref.write
+cirr tests.fraig/ISCAS85/C6288.aag -r
+do tests.err/do.cmd
+cirw -o write/C6288ref.write
+cirr tests.fraig/ISCAS85/C7552.aag -r
+do tests.err/do.cmd
+cirw -o write/C7552ref.write
+q -f

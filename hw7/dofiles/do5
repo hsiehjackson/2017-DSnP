@@ -1,0 +1,9 @@
+taski 100
+taskn -r 10000
+taskn -r 10000
+taskq -ha
+taskq -mini
+taskn -r 100000
+taskre -r 10000
+usage
+q -f

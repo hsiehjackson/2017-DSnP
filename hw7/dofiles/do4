@@ -1,0 +1,21 @@
+taski 1000000
+taskn -r 1000000
+taskq -hash
+taskq -heap
+taskq -min
+taskr -r 200000
+taskq -hash
+taskq -heap
+taskq -min
+taska 123 -r 100000
+taskq -hash
+taskq -heap
+taskq -min
+taskr -r 100000
+taskq -hash
+taskq -heap
+taskq -min
+usage
+q -f
+
+

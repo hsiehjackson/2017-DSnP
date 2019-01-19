@@ -1,0 +1,1267 @@
+cir> cirr tests.err/ok01.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           3
+  AIG          3
+------------------
+  Total        8
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+[7] CONST0
+[8] PO  10 !0
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9 10
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 7                                 =
+==================================================
+
+cir> cirg 10
+==================================================
+= PO(10), line 6                                 =
+==================================================
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+  !PO 10
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+PO 10
+  !CONST 0
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok01.write
+
+cir> cirr tests.err/ok02.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 9 !1 !2
+[4] AIG 3 !6 !9
+[5] PO  10 3 (s)
+[6] PO  11 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 10 11
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+==================================================
+= PO(10)"s", line 4                              =
+==================================================
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 10
+    PO 11
+  !AIG 9
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 10
+    PO 11
+  !AIG 9
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+PO 10
+  AIG 3
+    !AIG 6
+      PI 1
+      PI 2
+    !AIG 9
+      !PI 1
+      !PI 2
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok02.write
+
+cir> cirr tests.err/ok03.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  6 (x)
+[1] PI  2 (y)
+[2] AIG 1 6 2
+[3] AIG 7 !6 !2
+[4] AIG 3 !1 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 6 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= AIG(1), line 7                                 =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+AIG 1
+  !AIG 3
+    PO 8
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 1
+    !AIG 3
+      PO 8
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok03.write
+
+cir> cirr tests.err/ok04.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           3
+  AIG          3
+------------------
+  Total        8
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+[7] PO  10 !2
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9 10
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 7                                 =
+==================================================
+
+cir> cirg 10
+==================================================
+= PO(10), line 6                                 =
+==================================================
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+  !PO 10
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+PO 10
+  !PI 2
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok04.write
+
+cir> cirr tests.err/ok05.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 ( x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)" x", line 2                              =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok05.write
+
+cir> cirr tests.err/ok06.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x haha)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x haha", line 2                          =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok06.write
+
+cir> cirr tests.err/ok07.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok07.write
+
+cir> cirr tests.err/ok08.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok08.write
+
+cir> cirr tests.err/ok09.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2), line 3                                  =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok09.write
+
+cir> cirr tests.err/ok10.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok10.write
+
+cir> cirr tests.err/ok11.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          1
+------------------
+  Total        5
+
+cir> cirp -n
+
+[0] CONST0
+[1] PO  4 0
+[2] PI  1
+[3] PI  2
+[4] AIG 3 1 2
+[5] PO  5 3
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 4 5
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2), line 3                                  =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+  PO 4
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 3
+    PO 5
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 3
+    PO 5
+
+cir> cirg 5 -fani 3
+PO 5
+  AIG 3
+    PI 1
+    PI 2
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/ok11.write
+
+cir> cirr tests.err/good.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           2
+  AIG          3
+------------------
+  Total        7
+
+cir> cirp -n
+
+[0] PI  1 (x)
+[1] PI  2 (y)
+[2] AIG 6 1 2
+[3] AIG 7 !1 !2
+[4] AIG 3 !6 !7
+[5] PO  8 3 (s)
+[6] PO  9 6 (c)
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 8 9
+
+cir> cirp -fl
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1)"x", line 2                               =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2)"y", line 3                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 6                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 6
+    !AIG 3
+      PO 8
+    PO 9
+  !AIG 7
+    !AIG 3 (*)
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/good.write
+
+cir> q -f
+

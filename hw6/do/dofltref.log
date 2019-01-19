@@ -1,0 +1,666 @@
+cir> cirr tests.err/flt01.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           0
+  AIG          1
+------------------
+  Total        3
+
+cir> cirp -n
+
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit:
+
+cir> cirp -fl
+Gates defined but not used  : 3
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2), line 3                                  =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 4                                 =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 3
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 3
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt01ref.write
+
+cir> cirr tests.err/flt02.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           0
+  PO           1
+  AIG          1
+------------------
+  Total        2
+
+cir> cirp -n
+
+[0] AIG 1 *!2 *3
+[1] PO  4 1
+
+cir> cirp -pi
+PIs of the circuit:
+
+cir> cirp -po
+POs of the circuit: 4
+
+cir> cirp -fl
+Gates with floating fanin(s): 1
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= AIG(1), line 3                                 =
+==================================================
+
+cir> cirg 2
+==================================================
+= UNDEF(2), line 0                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= UNDEF(3), line 0                               =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+AIG 1
+  PO 4
+
+cir> cirg 2 -fano 10000
+UNDEF 2
+  !AIG 1
+    PO 4
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt02ref.write
+
+cir> cirr tests.err/flt03.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           1
+  PO           1
+  AIG          1
+------------------
+  Total        3
+
+cir> cirp -n
+
+[0] PI  1
+[1] AIG 2 1 *3
+[2] PO  4 2
+
+cir> cirp -pi
+PIs of the circuit: 1
+
+cir> cirp -po
+POs of the circuit: 4
+
+cir> cirp -fl
+Gates with floating fanin(s): 2
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= AIG(2), line 4                                 =
+==================================================
+
+cir> cirg 3
+==================================================
+= UNDEF(3), line 0                               =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 2
+    PO 4
+
+cir> cirg 2 -fano 10000
+AIG 2
+  PO 4
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt03ref.write
+
+cir> cirr tests.err/flt04.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           0
+  PO           0
+  AIG          1
+------------------
+  Total        1
+
+cir> cirp -n
+
+
+cir> cirp -pi
+PIs of the circuit:
+
+cir> cirp -po
+POs of the circuit:
+
+cir> cirp -fl
+Gates with floating fanin(s): 1
+Gates defined but not used  : 1
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= AIG(1), line 2                                 =
+==================================================
+
+cir> cirg 2
+==================================================
+= UNDEF(2), line 0                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= UNDEF(3), line 0                               =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+AIG 1
+
+cir> cirg 2 -fano 10000
+UNDEF 2
+  AIG 1
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt04ref.write
+
+cir> cirr tests.err/flt05.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           1
+  PO           1
+  AIG          0
+------------------
+  Total        2
+
+cir> cirp -n
+
+[0] PO  3 *2
+
+cir> cirp -pi
+PIs of the circuit: 1
+
+cir> cirp -po
+POs of the circuit: 3
+
+cir> cirp -fl
+Gates with floating fanin(s): 3
+Gates defined but not used  : 1
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= UNDEF(2), line 0                               =
+==================================================
+
+cir> cirg 3
+==================================================
+= PO(3), line 3                                  =
+==================================================
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+
+cir> cirg 1 -fano 10000
+PI 1
+
+cir> cirg 2 -fano 10000
+UNDEF 2
+  PO 3
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt05ref.write
+
+cir> cirr tests.err/flt06.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           1
+  PO           1
+  AIG          0
+------------------
+  Total        2
+
+cir> cirp -n
+
+[0] CONST0
+[1] PO  2 !0
+
+cir> cirp -pi
+PIs of the circuit: 1
+
+cir> cirp -po
+POs of the circuit: 2
+
+cir> cirp -fl
+Gates defined but not used  : 1
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= PO(2), line 3                                  =
+==================================================
+
+cir> cirg 3
+
+cir> cirg 10
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+  !PO 2
+
+cir> cirg 1 -fano 10000
+PI 1
+
+cir> cirg 2 -fano 10000
+PO 2
+
+cir> cirg 5 -fani 3
+
+cir> cirg 10 -fani 5 
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt06ref.write
+
+cir> cirr tests.err/flt07.aag -replace
+
+cir> do tests.err/do.cmd
+
+cir> cirp -s
+
+Circuit Statistics
+==================
+  PI           2
+  PO           1
+  AIG          6
+------------------
+  Total        9
+
+cir> cirp -n
+
+[0] PI  1
+[1] PI  2
+[2] AIG 3 1 2
+[3] PO  11 3
+
+cir> cirp -pi
+PIs of the circuit: 1 2
+
+cir> cirp -po
+POs of the circuit: 11
+
+cir> cirp -fl
+Gates with floating fanin(s): 7
+Gates defined but not used  : 9 10
+
+cir> cirg 0
+==================================================
+= CONST(0), line 0                               =
+==================================================
+
+cir> cirg 1
+==================================================
+= PI(1), line 2                                  =
+==================================================
+
+cir> cirg 2
+==================================================
+= PI(2), line 3                                  =
+==================================================
+
+cir> cirg 3
+==================================================
+= AIG(3), line 5                                 =
+==================================================
+
+cir> cirg 10
+==================================================
+= AIG(10), line 10                               =
+==================================================
+
+cir> cirg 100
+
+cir> cirg 1000
+
+cir> cirg 10000
+
+cir> cirg 0 -fano 10000
+CONST 0
+  !AIG 5
+    AIG 7
+      AIG 9
+      AIG 10
+    AIG 8
+      AIG 9
+      AIG 10
+
+cir> cirg 1 -fano 10000
+PI 1
+  AIG 3
+    AIG 8
+      AIG 9
+      AIG 10
+    PO 11
+  AIG 5
+    AIG 7
+      AIG 9
+      AIG 10
+    AIG 8 (*)
+
+cir> cirg 2 -fano 10000
+PI 2
+  AIG 3
+    AIG 8
+      AIG 9
+      AIG 10
+    PO 11
+
+cir> cirg 5 -fani 3
+AIG 5
+  !CONST 0
+  PI 1
+
+cir> cirg 10 -fani 5 
+AIG 10
+  AIG 7
+    UNDEF 6
+    AIG 5
+      !CONST 0
+      PI 1
+  AIG 8
+    AIG 5 (*)
+    AIG 3
+      PI 1
+      PI 2
+
+cir> cirg 100 -fani 50
+
+cir> cirg 1000 -fani 500 
+
+cir> cirg 1500 -fani 750
+
+cir> cirg 2000 -fani 1000
+
+cir> cirg 3000 -fani 1500
+
+cir> cirg 4000 -fani 2000
+
+cir> cirg 5000 -fani 2500
+
+cir> cirg 10000 -fani 5000
+
+cir> 
+cir> cirw -o write/flt07ref.write
+
+cir> q -f
+
